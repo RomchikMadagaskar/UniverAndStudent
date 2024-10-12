@@ -1,22 +1,27 @@
 package org.example;
 
+import org.example.comparator.StudentInerfaceComparator;
+import org.example.comparator.UniversityInterfaceComparator;
+import org.example.enums.StudentComparatorType;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import org.example.enums.UiversityComparatorType;
 
 public class RunApp {
-    public static void main(String[] args) {
-        University university=new University();
-        university.setId("VUZ-01");
-        university.setFullName("PTU N67 g. Igevsk");
-        university.setShortName("PTU");
-        university.setYearOfFoundation(1951);
-        university.setMainProfile(StudyProfile.PROGRAMMING);
+    public static void main(String[] args) throws IOException {
 
-        System.out.println(university);
+        List<University> universities=ReadXls.readXlsUniver("./src/main/resources/universityInfo.xlsx");
+        UniversityInterfaceComparator universityComparator=UtilClassComparator.getUniversityComparator(UiversityComparatorType.FULL_NAME);
+        universities.stream()
+                .sorted(universityComparator)
+                .forEach(System.out::println);
 
-        Student student=new Student();
-        student.setAvgExamScore(5);
-        student.setCurrentCourseNumber(4);
-        student.setFullName("Mask Ilon Bedrosovich");
-        student.setUniversityID("M2000");
-        System.out.println(student);
+        List<Student> students=ReadXls.readXlsStud("./src/main/resources/universityInfo.xlsx");
+        StudentInerfaceComparator studentComparator=UtilClassComparator.getStudentComparator(StudentComparatorType.FULL_NAME);
+        students.stream()
+                .sorted(studentComparator)
+                .forEach(System.out::println);
     }
 }
