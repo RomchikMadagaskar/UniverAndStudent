@@ -1,8 +1,10 @@
 package org.example.Models;
 
+import org.example.enums.StudyProfile;
+
 public class Statistics {
 
-    private String trainingProfile;
+    private StudyProfile profile;
     private double avgExamScore;
     private int totalStudProf;
     private int totalUniverProf;
@@ -11,8 +13,8 @@ public class Statistics {
     public Statistics() {
     }
 
-    public String getTrainingProfile() {
-        return trainingProfile;
+    public StudyProfile getProfile() {
+        return profile;
     }
 
     public double getAvgExamScore() {
@@ -30,9 +32,9 @@ public class Statistics {
     public String getUniverName() {
         return univerName;
     }
-
-    public void setTrainingProfile(String trainingProfile) {
-        this.trainingProfile = trainingProfile;
+    //
+    public void setProfile(StudyProfile profile) {
+        this.profile = profile;
     }
 
     public void setAvgExamScore(double avgExamScore) {
