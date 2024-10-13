@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 public class Student {
     private String fullName;

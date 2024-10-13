@@ -1,6 +1,6 @@
 package org.example.comparator;
 
-import org.example.Student;
+import org.example.Models.Student;
 
 public class StudentAvgExamScoreComparator implements StudentInerfaceComparator{
     @Override
