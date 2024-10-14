@@ -1,8 +1,11 @@
 package org.example;
 
+import org.example.Models.Statistics;
 import org.example.Models.Student;
 import org.example.Models.University;
+import org.example.Utilites.ProcessingStatistic;
 import org.example.Utilites.ReadXls;
+import org.example.Utilites.XlsWriter;
 import org.example.comparator.StudentInerfaceComparator;
 import org.example.comparator.UniversityInterfaceComparator;
 import org.example.comparator.UtilClassComparator;
@@ -26,5 +29,7 @@ public class RunApp {
         students.stream()
                 .sorted(studentComparator)
                 .forEach(System.out::println);
+        List<Statistics>statisticsList= ProcessingStatistic.createStatisticsList(students,universities);
+        XlsWriter.writeToXls(statisticsList,"./src/main/resources/exports.xlsx");
     }
 }
