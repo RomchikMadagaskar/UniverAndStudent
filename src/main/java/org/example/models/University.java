@@ -1,11 +1,27 @@
-package org.example.Models;
+package org.example.models;
 import org.example.enums.StudyProfile;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class University {
+
+    @XmlElement(name="universityId")
     private String id;
+
+    @XmlElement(name="universityName")
     private String fullName;
+
+    @XmlTransient
     private String shortName;
+
+    @XmlTransient
     private int yearOfFoundation;
+
+    @XmlElement(name="universityProfile")
     private StudyProfile mainProfile;
 
     public University() {

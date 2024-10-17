@@ -1,13 +1,28 @@
-package org.example.Models;
+package org.example.models;
 
 import org.example.enums.StudyProfile;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Statistics {
 
+    @XmlElement(name="universityProfile")
     private StudyProfile profile;
+
+    @XmlElement(name="avgScore")
     private double avgExamScore;
+
+    @XmlTransient
     private int totalStudProf;
+
+    @XmlTransient
     private int totalUniverProf;
+
+    @XmlTransient
     private String univerName;
 
     public Statistics() {

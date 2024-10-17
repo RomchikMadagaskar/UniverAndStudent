@@ -1,11 +1,13 @@
 package org.example;
 
-import org.example.Models.Statistics;
-import org.example.Models.Student;
-import org.example.Models.University;
-import org.example.Utilites.ProcessingStatistic;
-import org.example.Utilites.ReadXls;
-import org.example.Utilites.XlsWriter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.models.Statistics;
+import org.example.models.Student;
+import org.example.models.University;
+import org.example.utilites.ProcessingStatistic;
+import org.example.utilites.ReadXls;
+import org.example.utilites.XlsWriter;
 import org.example.comparator.StudentInerfaceComparator;
 import org.example.comparator.UniversityInterfaceComparator;
 import org.example.comparator.UtilClassComparator;
@@ -16,7 +18,11 @@ import java.util.List;
 import org.example.enums.UiversityComparatorType;
 
 public class RunApp {
-    public static void main(String[] args) throws IOException {
+
+    private static final Logger logger= LogManager.getLogger(RunApp.class.getName());
+
+    public static void main(String[] args) throws IOException{
+
 
         List<University> universities= ReadXls.readXlsUniver("./src/main/resources/universityInfo.xlsx");
         UniversityInterfaceComparator universityComparator= UtilClassComparator.getUniversityComparator(UiversityComparatorType.FULL_NAME);

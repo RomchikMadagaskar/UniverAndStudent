@@ -1,10 +1,25 @@
-package org.example.Models;
+package org.example.models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
+
+    @XmlElement(name="studentName")
     private String fullName;
+
+    @XmlElement(name="universityId")
     private String universityID;
+
+    @XmlTransient
     private int currentCourseNumber;
+
+    @XmlElement(name="avgScore")
     private float avgExamScore;
+
 
     public String getFullName() {
         return fullName;

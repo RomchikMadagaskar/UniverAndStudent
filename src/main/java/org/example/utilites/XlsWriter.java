@@ -1,4 +1,4 @@
-package org.example.Utilites;
+package org.example.utilites;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.example.Models.Statistics;
+import org.example.models.Statistics;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

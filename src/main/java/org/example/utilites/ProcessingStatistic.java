@@ -1,9 +1,9 @@
-package org.example.Utilites;
+package org.example.utilites;
 
 import org.apache.commons.lang3.StringUtils;
-import org.example.Models.Statistics;
-import org.example.Models.Student;
-import org.example.Models.University;
+import org.example.models.Statistics;
+import org.example.models.Student;
+import org.example.models.University;
 import org.example.enums.StudyProfile;
 
 import java.math.BigDecimal;
