@@ -1,10 +1,11 @@
 package org.example.models;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+@XmlRootElement(name="root")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AllData {
 
     @XmlElementWrapper(name="studentInfo")

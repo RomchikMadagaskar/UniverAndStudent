@@ -7,13 +7,19 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.models.Statistics;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class XlsWriter {
-    public static void writeToXls(List<Statistics> statistics,String patchFile)throws IOException {
+
+    private static final Logger logger= Logger.getLogger(XlsWriter.class.getName());
+
+    public static void writeToXls(List<Statistics> statistics,String patchFile) {
+
+        logger.info("Начало записи в файл xls...");
+
         XSSFWorkbook workbook=new XSSFWorkbook();
         XSSFSheet sheet=workbook.createSheet("statistic");
         int rowI=0;
@@ -23,7 +29,6 @@ public class XlsWriter {
         headFont.setFontHeightInPoints((short) 14);
         headFont.setBold(true);
         headerStyle.setFont(headFont);
-
 
         Cell profCellHead=header.createCell(0);
         profCellHead.setCellValue("Профиль обучения");
@@ -68,10 +73,14 @@ public class XlsWriter {
             Cell universCell=tableRow.createCell(4);
             universCell.setCellValue(stat.getUniverName());
         }
-
-        FileOutputStream outputStream=new FileOutputStream(patchFile);
-        workbook.write(outputStream);
-        workbook.close();
-
+        try {
+            FileOutputStream outputStream = new FileOutputStream(patchFile);
+            workbook.write(outputStream);
+            workbook.close();
+        }catch (IOException e){
+            logger.severe("Ошибка записи в файл xls!");
+            return;
+        }
+        logger.info("Запись в xls файл успешно завершено");
     }
 }

@@ -1,4 +1,5 @@
 package org.example.models;
+import com.google.gson.annotations.SerializedName;
 import org.example.enums.StudyProfile;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,9 +11,11 @@ import javax.xml.bind.annotation.XmlTransient;
 public class University {
 
     @XmlElement(name="universityId")
+    @SerializedName("universityId")
     private String id;
 
     @XmlElement(name="universityName")
+    @SerializedName("universityName")
     private String fullName;
 
     @XmlTransient
@@ -22,6 +25,7 @@ public class University {
     private int yearOfFoundation;
 
     @XmlElement(name="universityProfile")
+    @SerializedName("universityProfile")
     private StudyProfile mainProfile;
 
     public University() {

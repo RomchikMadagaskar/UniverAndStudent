@@ -1,5 +1,7 @@
 package org.example.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,15 +11,18 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Student {
 
     @XmlElement(name="studentName")
+    @SerializedName("studentName")
     private String fullName;
 
     @XmlElement(name="universityId")
+    @SerializedName("universityId")
     private String universityID;
 
     @XmlTransient
     private int currentCourseNumber;
 
     @XmlElement(name="avgScore")
+    @SerializedName("avgScore")
     private float avgExamScore;
 
 

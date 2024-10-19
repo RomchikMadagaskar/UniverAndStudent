@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ProcessingStatistic {
+
     public static List<Statistics> createStatisticsList(List<Student> studentList, List<University> universityList){
 
         List<Statistics> statisticsList=new ArrayList<>();
@@ -26,7 +27,7 @@ public class ProcessingStatistic {
             List<String> profileUniverId=universityList.stream()
                     .filter(university -> university.getMainProfile().equals(profile))
                     .map(University::getId)
-                    .collect(Collectors.toList());
+                    .toList();
             statistics.setTotalUniverProf(profileUniverId.size());
             statistics.setUniverName((StringUtils.EMPTY));
             universityList.stream()
@@ -37,7 +38,7 @@ public class ProcessingStatistic {
 
             List<Student> studentProfile=studentList.stream()
                     .filter(student->profileUniverId.contains(student.getUniversityID()))
-                    .collect(Collectors.toList());
+                    .toList();
             statistics.setTotalStudProf((studentProfile.size()));
             OptionalDouble avgExamScore=studentProfile.stream()
                     .mapToDouble(Student::getAvgExamScore)

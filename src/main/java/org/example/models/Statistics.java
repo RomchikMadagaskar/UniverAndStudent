@@ -1,5 +1,6 @@
 package org.example.models;
 
+import com.google.gson.annotations.SerializedName;
 import org.example.enums.StudyProfile;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,9 +12,11 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Statistics {
 
     @XmlElement(name="universityProfile")
+    @SerializedName("universityProfile")
     private StudyProfile profile;
 
     @XmlElement(name="avgScore")
+    @SerializedName("avgScore")
     private double avgExamScore;
 
     @XmlTransient
